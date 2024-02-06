@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to right, #000000, #0e0800);
+    color: #fff;
+    padding: 100px 0 30px;
+    border-top-left-radius: 150px;
+    font-size: 13px;
+    line-height: 20px;
+    position: relative;
+}
+
+.row {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.col {
+    flex-basis: 25%;
+    padding: 10px;
+}
+
+.col:nth-child(1),
+col:nth-child(2) {
+    flex-basis: 15%;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.col h3 {
+    width: fit-content;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+ul li {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.social-icons .fa-brands {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+.copyright {
+    text-align: center;
+}
+
+h3 {
+    position: relative;
+}
+
+h3 .underline {
+    position: relative;
+    display: inline-block;
+}
+
+h3 .underline span {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}

@@ -1,0 +1,60 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    
+    height: 40vh;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.submit-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #333;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+
+.update-btn {
+    background-color: green;
+    color: white;
+}
+
+.thank-you-message {
+    display: none;
+    font-weight
