@@ -10,7 +10,7 @@ $conn = mysqli_connect($host, $username, $password, "$database");
 $result = mysqli_query($conn, "SELECT * FROM contact");
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
     <title>Retrieve data</title>
@@ -61,3 +61,4 @@ $result = mysqli_query($conn, "SELECT * FROM contact");
         <?php include "footer.php"; ?>
 </body>
 </html>
+
