@@ -10,7 +10,7 @@
 <script src="script.js"></script>
 
 <br><br><br><br><br><br>
-
+ 
 <section class="contact">
     <div class="content">
         <h2>CONTACT US</h2>
@@ -69,3 +69,4 @@
 
 </body>
 </html>
+
