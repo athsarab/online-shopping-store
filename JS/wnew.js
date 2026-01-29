@@ -8,7 +8,7 @@ function ready() {
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
-        button.addEventListener('click', removeCartItem)
+        button.addEventListener('click', removeCartItem) 
     } 
  
     var quantityInputs = document.getElementsByClassName('cart-quantity-input')
@@ -102,4 +102,5 @@ function updateCartTotal() {
     document.getElementsByClassName('cart-total-price')[0].innerText = 'Rs' + total
 
 }
+
 
