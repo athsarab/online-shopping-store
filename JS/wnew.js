@@ -11,7 +11,7 @@ function ready() {
         button.addEventListener('click', removeCartItem) 
     } 
  
-    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+    var quantityInputs = document.getElementsByClassName('cart-quantity-input') 
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged)
@@ -102,5 +102,6 @@ function updateCartTotal() {
     document.getElementsByClassName('cart-total-price')[0].innerText = 'Rs' + total
 
 }
+
 
 
