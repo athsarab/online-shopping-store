@@ -5,7 +5,7 @@ $email = $_POST['email'];
 $address = $_POST['address'];
 $city = $_POST['city'];
 $country = $_POST['country'];
-$zip_code = $_POST['zip_code'];
+$zip_code = $_POST['zip_code']; 
 
 
 // Validate and sanitize the data (optional but recommended)
@@ -39,3 +39,4 @@ if ($conn->query($sql) === TRUE) {
 // Close the database connection
 $conn->close();
 ?>
+
