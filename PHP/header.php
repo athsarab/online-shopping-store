@@ -6,6 +6,7 @@
     <meta name="viewpoint" content="width=device-width" ,initial-scale=1>
     <title>Header</title>
     <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/cartSidebar.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,13 +32,20 @@
         </ul>
 
         <div class="header-btn">
+            <a href="#" id="cart-toggle" class="cart-toggle" aria-label="Open cart">
+                <i class='bx bx-cart' style="font-size:22px;"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </a>
             <a href="login.php" class="Login">Login</a>
             <a href="signup.php" class="Sign-Up">Sign Up</a>
         </div>
 
 
     </header>
-    <script type="text/javascript" src="../JS/wnew.js"></script>
+
+    <?php include __DIR__ . "/cartSidebar.php"; ?>
+
+    <script type="text/javascript" src="../JS/wnew.js" defer></script>
 
 </body>
 
