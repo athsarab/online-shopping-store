@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     $user_id = $_GET['id'];
 
     // Delete the user record from the database
-    $query = "DELETE FROM sizes WHERE user_id = '$user_id'";
+    $query = "DELETE FROM checkout_details WHERE user_id = '$user_id'";
     $result = mysqli_query($conn, $query);
 
     // Check if the deletion was successful

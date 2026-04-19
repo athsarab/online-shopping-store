@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Return and Exchange</title>
-  <link rel="stylesheet" href="../ASS/CSS/return.css">
+  <link rel="stylesheet" href="../CSS/return.css">
 </head>
 <body>
 

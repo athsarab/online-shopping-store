@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Men</title>
     <!--link css-->
-    <link rel="stylesheet" href="../ASS/CSS/men.css">
+    <link rel="stylesheet" href="../CSS/men.css">
     <!--box icons--> 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -22,7 +22,7 @@
  <div class="men-list1">
     <div class="men1">
         <div class="p1">
-      <img class="product-image" src="../ASS/PICS/men1.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/men1.jpg" alt="Product 1">
       <span class="shop-item-title"> <h2>short sleeve plaid<br>linen shirt</h2></span>
       <span class="shop-item-price"><p>Rs 3500.00</p></span>
       <p>S/M/L/XL</p>
@@ -32,7 +32,7 @@
     
     <div class="men1">
         <div class="p2">
-      <img class="product-image" src="../ASS/PICS/men2.jpg" alt="Product 2">
+      <img class="product-image" src="../PICS/men2.jpg" alt="Product 2">
       <span class="shop-item-title"><h2>printed casual white<br> shirt</h2></span>
       <span class="shop-item-price"><p>Rs 2500.00</p></span>
       <p>S/M/L/XL</p>
@@ -43,7 +43,7 @@
     <!-- Add more product divs as needed -->
 	<div class="men1">
         <div class="p3">
-      <img class="product-image" src="../ASS/PICS/men3.jpg" alt="Product 2">
+      <img class="product-image" src="../PICS/men3.jpg" alt="Product 2">
       <span class="shop-item-title">< <h2>Crew neck Top<br> T-shirt</h2></span>
       <span class="shop-item-price"><p>Rs 2500.00</p></span>
       <p>S/M/L/XL</p>
@@ -60,7 +60,7 @@
    <div class="men-list2">
     <div class="men2">
         <div class="p4">
-      <img class="product-image" src="../ASS/PICS/men4.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/men4.jpg" alt="Product 1">
       <span class="shop-item-title">  <h2>short sleeve stripped<br>linen shirt</h2></span>
       <span class="shop-item-price"><p>Rs 2000.00</p></span>
       <p>S/M/L/XL</p>
@@ -70,7 +70,7 @@
     
     <div class="men2">
         <div class="p5">
-      <img class="product-image" src="../ASS/PICS/men5.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/men5.jpg" alt="Product 1">
       <span class="shop-item-title"><h2>long sleeve linen<br> blue shirt</h2></span>
       <span class="shop-item-price"><p>Rs 4000.00</p></span>
       <p>S/M/L/XL</p>
@@ -81,7 +81,7 @@
     <!-- Add more product divs as needed -->
 	<div class="men2">
         <div class="p6">
-      <img class="product-image" src="../ASS/PICS/men6.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/men6.jpg" alt="Product 1">
       <span class="shop-item-title"> <h2>Long sleeve casual<br> T-shirt</h2></span>
       <span class="shop-item-price"><p>Rs 3500.00</p></span>
       <p>S/M/L/XL</p>
@@ -98,7 +98,7 @@
    <div class="men-list3">
     <div class="men3">
         <div class="p7">
-      <img class="product-image" src="../ASS/PICS/men7.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/men7.jpg" alt="Product 1">
       <span class="shop-item-title">   <h2>short sleeve casual<br>checked shirt</h2></span>
       <span class="shop-item-price"><p>RS 2500.00</p></span>
       <p>S/M/L/XL</p>
@@ -108,7 +108,7 @@
     
     <div class="men3">
         <div class="p8">
-      <img class="product-image" src="../ASS/PICS/men8.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/men8.jpg" alt="Product 1">
       <span class="shop-item-title">  <h2>long sleeve linen<br> light-blue shirt</h2></span>
       <span class="shop-item-price"><p>Rs 4000.00</p></span>
       <p>S/M/L/XL</p>
@@ -119,7 +119,7 @@
     <!-- Add more product divs as needed -->
 	<div class="men3">
         <div class="p9">
-      <img class="product-image" src="../ASS/PICS/men9.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/men9.jpg" alt="Product 1">
       <span class="shop-item-title"> <h2>striped long sleeve casual<br>shirt</h2></span>
       <span class="shop-item-price"><p>Rs 4500.00</p></span>
       <p>S/M/L/XL</p>

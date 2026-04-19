@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Contact Us</title>
-    <link rel="stylesheet" href="..\ASS\CSS\contactnew.css">
+    <link rel="stylesheet" href="../CSS/contactnew.css">
 </head>
 <body>
 <?php include "header.php"; ?>

@@ -14,7 +14,7 @@ $result = mysqli_query($conn, "SELECT * FROM contact");
 <html>
 <head>
     <title>Retrieve data</title>
-    <link rel="stylesheet" href="..\ASS\CSS\seen.css">
+    <link rel="stylesheet" href="../CSS/seen.css">
 </head>
 <body>
 <?php include "header.php"; ?>

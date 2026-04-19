@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Home page</title>
 <title>Image Slider using HTML and CSS</title>
-<link rel="stylesheet" href="../ASS/CSS/index.css">
+<link rel="stylesheet" href="../CSS/index.css">
 
 </head>
 <body onload="slider()">
@@ -14,7 +14,7 @@
 <br><br>
 <div class="banner">
 <div class="slider">
-<img src="../ASS/PICS/imgo.png" id= "slideImg">
+<img src="../PICS/imgo.png" id= "slideImg">
 
 </div>
    <div class="overlay">
@@ -33,10 +33,10 @@
     var slideImg = document.getElementById("slideImg");
 
     var images = new Array(
-        "../ASS/PICS/img.png",
-        "../ASS/PICS/img1.png",
-        "../ASS/PICS/img2.jpg",
-        "../ASS/PICS/img3.jpg"
+        "../PICS/img.png",
+        "../PICS/img1.png",
+        "../PICS/img2.jpg",
+        "../PICS/img3.jpg"
     );
 
     var len=images.length;
@@ -68,13 +68,13 @@
         <input type="radio" name="radio-btn" id="radio3">
 
         <div class="slide first">
-            <img src="../ASS/PICS/imgaa.png" alt="">
+            <img src="../PICS/imgaa.png" alt="">
         </div>
         <div class="slide">
-            <img src="../ASS/PICS/imgb.png" alt="">
+            <img src="../PICS/imgb.png" alt="">
         </div>
         <div class="slide">
-            <img src="../ASS/PICS/imgc.png" alt="">
+            <img src="../PICS/imgc.png" alt="">
         </div>
 
         <div class="navigation-auto">
@@ -106,25 +106,25 @@
 <br><br><br><br><br>
 <div class="new-list1">
     <div class="new1">
-        <img src="../ASS/PICS/women8.png" alt="product1">
+        <img src="../PICS/women8.png" alt="product1">
         
       <a href="women.php"> <button class="view-more">VIEW MORE</button></a>
     </div>
 
     <div class="new1">
-        <img src="../ASS/PICS/men.png" alt="product2">
+        <img src="../PICS/men.png" alt="product2">
         
         <a href="Men.php"> <button class="view-more">VIEW MORE</button></a>
     </div>
 
     <div class="new1">
-        <img src="../ASS/PICS/NEW.png" alt="product3">
+        <img src="../PICS/NEW.png" alt="product3">
         
         <a href="new.php"><button class="view-more">VIEW MORE</button></a>
     </div>
 
     <div class="new1">
-        <img src="../ASS/PICS/kids.png" alt="product4">
+        <img src="../PICS/kids.png" alt="product4">
        
         <a href="kids.php"><button class="view-more">VIEW MORE</button></a>
     </div>

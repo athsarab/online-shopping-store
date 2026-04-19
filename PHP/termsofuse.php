@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="device-width, initial-scale=1.0">
     <title>Privacy & Policy</title>
-    <link rel="stylesheet" href="../ASS/CSS/termsofuse.css">
+    <link rel="stylesheet" href="../CSS/termsofuse.css">
    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

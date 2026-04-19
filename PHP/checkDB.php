@@ -27,14 +27,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Insert the data into a table
-$sql = "INSERT INTO sizes (full_name, email, address, city, country, zip_code)
-        VALUES ('$full_name', '$email', '$address', '$city', '$country', '$zip_code')";
-if ($conn->query($sql) === TRUE) {
+// Insert the data into checkout_details (do NOT store card data)
+$stmt = $conn->prepare(
+    "INSERT INTO checkout_details (full_name, email, address, city, country, zip_code) VALUES (?, ?, ?, ?, ?, ?)"
+);
+$stmt->bind_param('ssssss', $full_name, $email, $address, $city, $country, $zip_code);
+
+if ($stmt->execute()) {
     header('Location: seen.php');
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    exit;
 }
+
+echo "Error: " . $conn->error;
+
+$stmt->close();
 
 // Close the database connection
 $conn->close();

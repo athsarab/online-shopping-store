@@ -7,14 +7,14 @@ $database = "sample"; // Replace with your database name
 
 // Connect to the database
 $conn = mysqli_connect($host, $username, $password, "$database");
-$result = mysqli_query($conn, "SELECT * FROM sizes");
+$result = mysqli_query($conn, "SELECT * FROM checkout_details");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Retrieve data</title>
-    <link rel="stylesheet" href="..\ASS\CSS\seen.css">
+    <link rel="stylesheet" href="../CSS/seen.css">
 </head>
 <body>
 <?php include "header.php"; ?>
