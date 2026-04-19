@@ -14,47 +14,38 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve username and password from the form
-    $user_name = $_POST["user_name"];
-    $password = $_POST["password"];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $user_name = $_POST["user_name"] ?? '';
+    $password = $_POST["password"] ?? '';
 
-    $sql = "SELECT user_name, password, user_type FROM users WHERE user_name = ? LIMIT 1";
-    $stmt = $conn -> prepare ($sql);
-    $stmt -> bind_param ('s', $user_name);
-    $stmt -> execute ();
-    $result = $stmt -> get_result ();
+    $sql = "SELECT user_id, user_name, password, user_type FROM users WHERE user_name = ? LIMIT 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('s', $user_name);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    // Check if row was returned
-    if ($result -> num_rows === 1) {
-        $row = $result -> fetch_assoc();
-
-        // check input values with database
-        if (($row['user_name'] === $user_name) && ($row['password'] === $password)) {
-            // login successfully
-            session_start ();
-            $_SESSION['isLoggedIn'] = TRUE;
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            session_start();
+            session_regenerate_id(true);
+            $_SESSION['isLoggedIn'] = true;
+            $_SESSION['user_id'] = (int)$row['user_id'];
             $_SESSION['user_name'] = $row['user_name'];
             $_SESSION['user_type'] = $row['user_type'];
 
             if ($row['user_type'] === 'admin') {
-                header('Location: ./women.php');
-            }
-            else {
-                header('Location: ./men.php');
+                header('Location: ../admin_panel/index.php');
+            } else {
+                header('Location: ./index.php');
             }
             exit;
         }
     }
 
-    header('Location:..\aflogin\PHP\index.php');
-
-    $stmt -> close();
-    $conn -> close();
+    header('Location: ./login.php');
+    exit;
 }
-
-var_dump($_POST);
 ?>
 
 <!-- Display error message -->

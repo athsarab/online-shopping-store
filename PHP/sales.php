@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sales</title>
     <!--link css-->
-    <link rel="stylesheet" href="../ASS/CSS/sales.css">
+    <link rel="stylesheet" href="../CSS/sales.css">
     <!--box icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -24,7 +24,7 @@
  <div class="sales-list1">
     <div class="sales1">
         <div class="p1">
-      <img class="product-image" src="../ASS/PICS/sales1.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/sales1.jpg" alt="Product 1">
       <span class="shop-item-title"><h2>Stripped T-shirt<br>blue dress</h2></span>
       <span class="sale-tag">SALE</span>
       <span class="shop-item-price"><p>Rs 1500.00</p></span>
@@ -39,7 +39,7 @@
     
     <div class="sales1">
         <div class="p2">
-      <img class="product-image" src="../ASS/PICS/sales2.jpg" alt="Product 2">
+      <img class="product-image" src="../PICS/sales2.jpg" alt="Product 2">
       <span class="shop-item-title"><h2>Stripped T-shirt<br>red dress</h2></span>
       <span class="shop-item-price"><p>Rs 2800.00</p></span>
       <span class="sale-tag">SALE</span>
@@ -54,7 +54,7 @@
     <!-- Add more product divs as needed -->
 	<div class="sales1">
         <div class="p3">
-      <img class="product-image" src="../ASS/PICS/sales3.jpg" alt="Product 2">
+      <img class="product-image" src="../PICS/sales3.jpg" alt="Product 2">
       <span class="shop-item-title">  <h2>Floral printed skater<br>mini dress</h2></span>
       <span class="shop-item-price"><p>Rs 2450.00</p></span>
       <span class="sale-tag">SALE</span>
@@ -75,7 +75,7 @@
    <div class="sales-list2">
     <div class="sales2">
         <div class="p4">
-      <img class="product-image" src="../ASS/PICS/sales4.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/sales4.jpg" alt="Product 1">
       <span class="shop-item-title">  <h2>long sleeve stripped<br>linen shirt</h2></span>
       <span class="shop-item-price"><p>Rs 1875.00</p></span>
       <span class="sale-tag">SALE</span>
@@ -89,7 +89,7 @@
     
     <div class="sales2">
         <div class="p5">
-      <img class="product-image" src="../ASS/PICS/sales5.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/sales5.jpg" alt="Product 1">
       <span class="shop-item-title">  <h2>long sleeve linen<br> blue shirt</h2></span>
       <span class="shop-item-price"><p>Rs 1875.00</p></span>
       <span class="sale-tag">SALE</span>
@@ -104,7 +104,7 @@
     <!-- Add more product divs as needed -->
 	<div class="sales2">
         <div class="p6">
-      <img class="product-image" src="../ASS/PICS/sales6.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/sales6.jpg" alt="Product 1">
       <span class="shop-item-title"> <h2>Long sleeve casual<br>linen shirt</h2></span>
       <span class="shop-item-price"><p>Rs 1875.00</p></span>
       <span class="sale-tag">SALE</span>
@@ -125,7 +125,7 @@
    <div class="sales-list3">
     <div class="sales3">
         <div class="p7">
-      <img class="product-image" src="../ASS/PICS/sales7.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/sales7.jpg" alt="Product 1">
       <span class="shop-item-title"><h2>long sleeve casual<br>checked blouse</h2></span>
       <span class="shop-item-price"><p>Rs 1800.00</p></span>
       <span class="sale-tag">SALE</span>
@@ -139,7 +139,7 @@
     
     <div class="sales3">
         <div class="p8">
-      <img class="product-image" src="../ASS/PICS/sales8.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/sales8.jpg" alt="Product 1">
       <span class="shop-item-title">   <h2>Short sleeve linen<br> B&W shirt</h2></span>
       <span class="shop-item-price"><p>Rs 1875.00</p></span>
       <span class="sale-tag">SALE</span>
@@ -154,7 +154,7 @@
     <!-- Add more product divs as needed -->
 	<div class="sales3">
         <div class="p9">
-      <img class="product-image" src="../ASS/PICS/sales9.jpg" alt="Product 1">
+      <img class="product-image" src="../PICS/sales9.jpg" alt="Product 1">
       <span class="shop-item-title"><h2>Front tie up<br>mini dress</h2></span>
       <span class="shop-item-price"><p>Rs 1800.00</p></span>
       <span class="sale-tag">SALE</span>

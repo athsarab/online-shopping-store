@@ -1,41 +1,33 @@
-<html>
 <?php
 // Retrieve the form data
-$name = $_POST['name'];
-$email = $_POST['email'];
-$contact_no = $_POST['contact_no'];
-$password = $_POST['password'];
-
-// TODO: Validate and sanitize the form data as needed
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$contact_no = $_POST['contact_no'] ?? '';
+$password = $_POST['password'] ?? '';
 
 // Connect to the database
-$servername = "localhost"; 
+$servername = "localhost";
 $username = "root";
 $db_password = "";
 $dbname = "sample";
 
 $conn = new mysqli($servername, $username, $db_password, $dbname);
-
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Hash the password
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-// Insert the form data into the database
-$sql = "INSERT INTO users (user_name, email, contact_no, password,user_type) VALUES ('$name', '$email', '$contact_no', '$hashedPassword' , DEFAULT)";
+$stmt = $conn->prepare("INSERT INTO users (user_name, email, contact_no, password) VALUES (?, ?, ?, ?)");
+$stmt->bind_param('ssss', $name, $email, $contact_no, $hashedPassword);
 
-if ($conn->query($sql) === TRUE) {
-   echo "Sign up successful.";
-  
-
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+if ($stmt->execute()) {
+    header('Location: ./login.php');
+    exit;
 }
 
+echo "Error: " . $conn->error;
+
+$stmt->close();
 $conn->close();
 ?>
-
-</html>
