@@ -26,13 +26,16 @@ if ($conn->connect_error) {
 }
 
 // Insert the data into a table
-$sql = "INSERT INTO contact (fullname, email, message)
-        VALUES ('$fullname', '$email', '$message')";
-if ($conn->query($sql) === TRUE) {
+$stmt = $conn->prepare("INSERT INTO contact (fullname, email, message) VALUES (?, ?, ?)");
+$stmt->bind_param('sss', $fullname, $email, $message);
+if ($stmt->execute()) {
     header('Location: conseen.php');
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    exit;
 }
+
+echo "Error: " . $conn->error;
+
+$stmt->close();
 
 // Close the database connection
 $conn->close();

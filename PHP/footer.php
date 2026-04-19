@@ -4,7 +4,7 @@
 <head>
     <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
     <title>footer</title>
-    <link rel="stylesheet" href="../ASS/CSS/footernew.css">
+    <link rel="stylesheet" href="../CSS/footernew.css">
     <script src="https://kit.fontawesome.com/51f0ae8046.js"></script>
 </head>
 

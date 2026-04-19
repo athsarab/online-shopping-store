@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewpoint" content="width=device-width" ,initial-scale=1>
     <title>Header</title>
-    <link rel="stylesheet" href="../ASS/CSS/header.css">
+    <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
 
         <ul class="navbar">
             <li><a href="index.php">Home</a></li>
-            <li><a href="men.php">Men</a</li>
+            <li><a href="men.php">Men</a></li>
             <li><a href="women.php">Women</a></li>
             <li><a href="kids.php">Kids</a></li>
             <li><a href="sales.php">Sales</a></li>
@@ -37,7 +37,7 @@
 
 
     </header>
-    <script type="tet/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="../JS/wnew.js"></script>
 
 </body>
 

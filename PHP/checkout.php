@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
      
         <!--custom css file link-->
-        <link rel="stylesheet" href="..\ASS\CSS\Check.css">
+      <link rel="stylesheet" href="../CSS/Check.css">
 
     </head>
     <?php include "header.php"; ?>
@@ -53,7 +53,7 @@
 
                     <div class="inputBox">
                        <span>cards accepted :</span>
-                       <img src="..\ASS\PICS\OIP.jpg" alt="">
+                       <img src="../PICS/OIP.jpg" alt="">
                     </div>
                     <div class="inputBox">
                         <span>name on card :</span>

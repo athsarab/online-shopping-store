@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>FAQ</title>
-  <link rel="stylesheet" href="../ASS/CSS/FAQ.css">
+    <link rel="stylesheet" href="../CSS/FAQ.css">
 </head>
 <body>
 

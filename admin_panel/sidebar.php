@@ -10,7 +10,7 @@
     <a href="./index.php" ><i class="fa fa-home"></i> Dashboard</a>
     <a href="#costumer"  onclick="showCustomers()" ><i class="fa fa-users"></i> costumer</a>
     <a href="#category"   onclick="showCategory()" ><i class="fa fa-th-large"></i> Category</a>
-    <a href="#sizes"   onclick="showSizes()" ><i class="fa fa-th"></i> checkout details</a>
+    <a href="#sizes"   onclick="showSizes()" ><i class="fa fa-th"></i> Sizes</a>
      
     <a href="#products"   onclick="showProductItems()" ><i class="fa fa-th"></i> cart</a>
     <a href="#orders" onclick="showOrders()"><i class="fa fa-list"></i> Orders</a>

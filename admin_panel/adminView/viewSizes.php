@@ -5,14 +5,8 @@
     <thead>
       <tr>
         <th class="text-center">S.N.</th>
-        <th class="text-center">full name</th>
-        <th class="text-center">email</th>
-        <th class="text-center">address</th>
-        <th class="text-center">city</th>
-        <th class="text-center">country</th>
-        <th class="text-center">zipcode</th>
-
-        <th class="text-center" colspan="2">Action</th>
+        <th class="text-center">Size</th>
+        <th class="text-center">Action</th>
       </tr>
     </thead>
     <?php
@@ -25,14 +19,8 @@
     ?>
     <tr>
       <td><?=$count?></td>
-      <td><?=$row["full_name"]?></td>  
-      <td><?=$row["email"]?></td> 
-      <td><?=$row["address"]?></td> 
-      <td><?=$row["city"]?></td> 
-      <td><?=$row["country"]?></td> 
-      <td><?=$row["zip_code"]?></td>  
-      <!-- <td><button class="btn btn-primary" >Edit</button></td> -->
-      <td><button class="btn btn-danger" style="height:40px" onclick="sizeDelete('<?=$row['user_id']?>')">Delete</button></td>
+      <td><?=$row["size_name"]?></td>
+      <td><button class="btn btn-danger" style="height:40px" onclick="sizeDelete('<?=$row['size_id']?>')">Delete</button></td>
       </tr>
       <?php
             $count=$count+1;
