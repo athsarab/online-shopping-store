@@ -1,53 +1,45 @@
-<!DOCTYPE html>
-<html>
+<script src="https://kit.fontawesome.com/51f0ae8046.js" crossorigin="anonymous" defer></script>
 
-<head>
-    <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
-    <title>footer</title>
-    <link rel="stylesheet" href="../CSS/footernew.css">
-    <script src="https://kit.fontawesome.com/51f0ae8046.js"></script>
-</head>
+<footer class="site-footer" aria-label="Footer">
+    <div class="footer-inner">
+        <div class="footer-col footer-brand">
+            <h2 class="footer-logo">K I Y A R A A</h2>
+            <p class="footer-tagline">Elevate your style with KIYARAA — your destination for trendy fashion online.</p>
+        </div>
 
-<body>
-    <footer>
-        <div class="row">
-            <div class="col">
-                <h2 class="logo">K I Y A R A A</h2>
-                <p>"Elevate your style with KIYARAA - your ultimate destination for trendy fashion online."</p>
-            </div>
-            <div class="col">
-                <h3>SUPPORT
-                    <div class="underline"><span></span></div>
-                </h3>
-                <ul>
-                    <li> <a href="return.php">Return and Exchange</a></li>
-                    <li> <a href="termsofuse.php">Terms of use</a></li>
-                    <li> <a href="Privacy & Policy.php">Privact and Policy</a></li>
-                    <li> <a href="FAQ.php">FAQs</a></li>
-                </ul>
-            </div>
-            <div class="col">
-                <h3>QUICK LINKS
-                    <div class="underline"><span></span></div>
-                </h3>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="sales.php">Sales</a></li>
-                    <li><a href="new.php">New Arrivals</a></li>
-                </ul>
-            </div>
-            <div class="col">
-                <div class="social-icons">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+        <div class="footer-col">
+            <h3 class="footer-title">Support</h3>
+            <ul class="footer-links">
+                <li><a href="return.php">Return &amp; Exchange</a></li>
+                <li><a href="termsofuse.php">Terms of Use</a></li>
+                <li><a href="Privacy &amp; Policy.php">Privacy &amp; Policy</a></li>
+                <li><a href="FAQ.php">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="sales.php">Sales</a></li>
+                <li><a href="new.php">New Arrivals</a></li>
+                <li><a href="contactnew.php">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3 class="footer-title">Follow</h3>
+            <div class="social-icons" aria-label="Social media">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
-        <hr>
-        <p class="copyright">maintain &#169;2023 K I Y A R A A . All rights reserved</p>
-    </footer>
-</body>
+    </div>
 
-</html>
+    <hr class="footer-divider">
+    <p class="copyright">&copy; <span id="footer-year">2026</span> K I Y A R A A. All rights reserved.</p>
+
+    <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to top">Top</a>
+</footer>

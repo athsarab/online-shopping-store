@@ -190,13 +190,9 @@
 </section>
 
 
-<script src="../JS/wnew.js"></script>
-<?php include "footer.php"; ?>
-</body>
 
 
-
-</html>
+</div>
 
 
 
