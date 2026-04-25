@@ -10,7 +10,7 @@
     function setActiveNavLink() {
         var current = getCurrentPage().toLowerCase();
         var links = document.querySelectorAll(".navbar a[href]");
-        for (var i = 0; i < links.length; i++) {
+        for (var i = 0; i < links.length; i++) { 
             var href = (links[i].getAttribute("href") || "").toLowerCase();
             if (!href) continue;
 
