@@ -8,7 +8,7 @@
     }
 
     function initBackToTop() {
-        var btn = document.getElementById("back-to-top");
+        var btn = document.getElementById("back-to-top"); 
         if (!btn) return;
 
         function update() {
