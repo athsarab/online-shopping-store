@@ -5,6 +5,7 @@ if (!isset($GLOBALS['__kiyaraa_assets_loaded'])) {
     <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="../CSS/cartSidebar.css">
     <link rel="stylesheet" href="../CSS/footernew.css">
+    <link rel="stylesheet" href="../CSS/mobile.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
