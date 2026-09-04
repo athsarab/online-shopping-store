@@ -1,0 +1,303 @@
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  header {
+    padding: 12px 16px;
+    height: 76px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  header.is-scrolled {
+    height: 68px;
+    padding: 10px 16px;
+  }
+
+  .logo {
+    flex: 0 0 auto;
+    font-size: 14px;
+  }
+
+  .logo h2 {
+    margin: 0;
+    white-space: nowrap;
+    line-height: 1;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .header-btn {
+    flex: 0 0 auto;
+    gap: 8px;
+  }
+
+  .menu-toggle {
+    margin: 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .header-btn .Login,
+  .header-btn .Sign-Up {
+    display: none;
+  }
+
+  .header-btn .cart-toggle {
+    padding: 8px 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .navbar {
+    top: 76px;
+  }
+
+  .banner {
+    height: auto;
+    min-height: 82vh;
+  }
+
+  .slider,
+  .overlay {
+    height: 82vh;
+    min-height: 520px;
+  }
+
+  .content {
+    width: calc(100% - 32px);
+    margin: 170px auto 0;
+  }
+
+  .content h1 {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .content h2 {
+    width: 100%;
+    margin: 16px auto 40px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  button {
+    width: min(100%, 220px);
+    margin: 8px 0;
+    padding: 12px 0;
+  }
+
+  .slider1 {
+    width: calc(100% - 24px);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .slides,
+  .slide img {
+    height: 280px;
+  }
+
+  .navigation-manual,
+  .navigation-auto {
+    width: calc(100% - 24px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .new-list1,
+  .new-list2,
+  .new-list3,
+  .men-list1,
+  .men-list2,
+  .men-list3,
+  .women-list1,
+  .women-list2,
+  .women-list3,
+  .kids-list1,
+  .kids-list2,
+  .kids-list3,
+  .sales-list1,
+  .sales-list2,
+  .sales-list3 {
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    padding: 0 16px;
+  }
+
+  .new1,
+  .new2,
+  .new3,
+  .men1,
+  .men2,
+  .men3,
+  .women1,
+  .women2,
+  .women3,
+  .kids1,
+  .kids2,
+  .kids3,
+  .sales1,
+  .sales2,
+  .sales3 {
+    width: min(100%, 420px);
+    margin: 0;
+  }
+
+  .new1 img,
+  .new2 img,
+  .new3 img,
+  .men1 img,
+  .men2 img,
+  .men3 img,
+  .women1 img,
+  .women2 img,
+  .women3 img,
+  .kids1 img,
+  .kids2 img,
+  .kids3 img,
+  .sales1 img,
+  .sales2 img,
+  .sales3 img,
+  .product-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .new1,
+  .new2,
+  .new3,
+  .men1,
+  .men2,
+  .men3,
+  .women1,
+  .women2,
+  .women3,
+  .kids1,
+  .kids2,
+  .kids3,
+  .sales1,
+  .sales2,
+  .sales3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shop-item-title h2 {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .shop-item-price p,
+  .new1 p,
+  .new2 p,
+  .new3 p,
+  .men1 p,
+  .men2 p,
+  .men3 p,
+  .women1 p,
+  .women2 p,
+  .women3 p,
+  .kids1 p,
+  .kids2 p,
+  .kids3 p,
+  .sales1 p,
+  .sales2 p,
+  .sales3 p {
+    font-size: 14px;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-purchase,
+  .view-more {
+    width: min(100%, 240px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .cart-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cart-column {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .cart-item,
+  .cart-price,
+  .cart-quantity {
+    width: 100%;
+  }
+
+  .cart-quantity-input {
+    margin-right: 0;
+  }
+
+  .tour-date,
+  .tour-city,
+  .tour-arena,
+  .tour-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .content h1 {
+    font-size: 26px;
+  }
+
+  .slider,
+  .overlay {
+    min-height: 460px;
+  }
+
+  .slides,
+  .slide img {
+    height: 220px;
+  }
+
+  .new-list1,
+  .new-list2,
+  .new-list3,
+  .men-list1,
+  .men-list2,
+  .men-list3,
+  .women-list1,
+  .women-list2,
+  .women-list3,
+  .kids-list1,
+  .kids-list2,
+  .kids-list3,
+  .sales-list1,
+  .sales-list2,
+  .sales-list3 {
+    padding: 0 12px;
+  }
+
+  .new1,
+  .new2,
+  .new3,
+  .men1,
+  .men2,
+  .men3,
+  .women1,
+  .women2,
+  .women3,
+  .kids1,
+  .kids2,
+  .kids3,
+  .sales1,
+  .sales2,
+  .sales3 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
