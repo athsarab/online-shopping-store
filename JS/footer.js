@@ -10,7 +10,7 @@
     function initBackToTop() {
         var btn = document.getElementById("back-to-top"); 
         if (!btn) return;
-
+ 
         function update() {
             if (window.scrollY > 400) btn.classList.add("is-visible");
             else btn.classList.remove("is-visible");
