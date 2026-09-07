@@ -1,0 +1,303 @@
+/* ============================================================
+   PAGE TRANSITION SYSTEM
+   Overlay + Banner shown when user navigates between pages
+   ============================================================ */
+
+body {
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+                opacity    420ms cubic-bezier(0.22, 1, 0.36, 1),
+                filter     420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.page-ready {
+    animation: page-enter 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+body.page-transition-ready .page-transition-banner,
+body.page-transition-ready .page-transition-overlay {
+    will-change: transform, opacity, filter;
+}
+
+body.page-leaving {
+    overflow: hidden;
+    transform: scale(0.975);
+    opacity: 0.5;
+    filter: blur(14px) saturate(0.82) contrast(0.94);
+}
+
+.page-transition-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9997;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(18px) scale(1.01);
+    transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    background:
+        radial-gradient(circle at top, rgba(197, 165, 133, 0.34), transparent 38%),
+        linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(12, 12, 12, 0.995));
+    backdrop-filter: blur(22px);
+}
+
+.page-transition-overlay.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.page-transition-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    transform: translateX(-100%);
+    animation: page-sheen 2200ms ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.page-transition-overlay::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(52vw, 560px);
+    height: 2px;
+    transform: translate(-50%, -50%) scaleX(0.2);
+    transform-origin: center;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), rgba(197, 165, 133, 0.95), rgba(255, 255, 255, 0.8), transparent);
+    box-shadow: 0 0 36px rgba(197, 165, 133, 0.55);
+    opacity: 0;
+    transition: opacity 900ms ease, transform 900ms ease;
+}
+
+.page-transition-overlay.is-visible::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scaleX(1);
+}
+
+/* ── Banner card ─────────────────────────────────────────── */
+.page-transition-banner {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 9999;
+    width: min(92vw, 480px);
+    padding: 32px 32px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 28px;
+    background: linear-gradient(
+        160deg,
+        rgba(18, 18, 18, 0.96) 0%,
+        rgba(10, 10, 10, 0.98) 100%
+    );
+    box-shadow:
+        0 0 0 1px rgba(197, 165, 133, 0.08),
+        0 30px 90px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(197, 165, 133, 0.06) inset;
+    backdrop-filter: blur(28px) saturate(1.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6);
+    color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88) translateY(22px);
+    pointer-events: none;
+    transition:
+        opacity  700ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    /* inner glow border */
+    outline: 1px solid rgba(255, 255, 255, 0.04);
+    outline-offset: 6px;
+}
+
+.page-transition-banner.is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) translateY(0);
+}
+
+/* ── Page icon ───────────────────────────────────────────── */
+.page-transition-icon {
+    display: block;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    transition: none;
+    filter: drop-shadow(0 0 12px rgba(197, 165, 133, 0.5));
+}
+
+.page-transition-banner.is-visible .page-transition-icon {
+    animation: banner-icon-pop 600ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
+}
+
+/* ── Divider accent ──────────────────────────────────────── */
+.page-transition-accent {
+    display: block;
+    width: 56px;
+    height: 2px;
+    margin: 0 auto 18px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, rgba(197, 165, 133, 0.9), transparent);
+    opacity: 0;
+    transform: scaleX(0.3);
+    transition: none;
+}
+
+.page-transition-banner.is-visible .page-transition-accent {
+    animation: banner-accent-grow 600ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+
+/* ── Kicker label ────────────────────────────────────────── */
+.page-transition-kicker {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(197, 165, 133, 0.85);
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: none;
+}
+
+.page-transition-banner.is-visible .page-transition-kicker {
+    animation: banner-pop 600ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both;
+}
+
+/* ── Page title ──────────────────────────────────────────── */
+.page-transition-title {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ffffff 40%, rgba(197, 165, 133, 0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: none;
+}
+
+.page-transition-banner.is-visible .page-transition-title {
+    animation: banner-pop 700ms cubic-bezier(0.16, 1, 0.3, 1) 240ms both;
+}
+
+/* ── Progress bar ────────────────────────────────────────── */
+.page-transition-progress-wrap {
+    margin-top: 22px;
+    height: 3px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    opacity: 0;
+    transition: none;
+}
+
+.page-transition-banner.is-visible .page-transition-progress-wrap {
+    animation: banner-pop 400ms cubic-bezier(0.16, 1, 0.3, 1) 340ms both;
+}
+
+.page-transition-progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, rgba(197, 165, 133, 0.6), rgba(197, 165, 133, 1), #ffffff);
+    box-shadow: 0 0 10px rgba(197, 165, 133, 0.7);
+    transition: none;
+}
+
+.page-transition-banner.is-visible .page-transition-progress-bar {
+    animation: progress-fill 850ms cubic-bezier(0.4, 0, 0.2, 1) 400ms both;
+}
+
+/* ── Keyframes ───────────────────────────────────────────── */
+@keyframes banner-icon-pop {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.7);
+        filter: blur(4px) drop-shadow(0 0 0px rgba(197, 165, 133, 0));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0) drop-shadow(0 0 12px rgba(197, 165, 133, 0.5));
+    }
+}
+
+@keyframes banner-accent-grow {
+    from { opacity: 0; transform: scaleX(0.1); }
+    to   { opacity: 1; transform: scaleX(1); }
+}
+
+@keyframes banner-pop {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes progress-fill {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
+@keyframes page-enter {
+    from {
+        opacity: 0.65;
+        transform: translateY(16px) scale(0.99);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes page-sheen {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%);  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .page-transition-overlay,
+    .page-transition-banner {
+        transition-duration: 1ms;
+    }
+
+    .page-transition-overlay::before,
+    .page-transition-banner.is-visible .page-transition-icon,
+    .page-transition-banner.is-visible .page-transition-accent,
+    .page-transition-banner.is-visible .page-transition-kicker,
+    .page-transition-banner.is-visible .page-transition-title,
+    .page-transition-banner.is-visible .page-transition-progress-wrap,
+    .page-transition-banner.is-visible .page-transition-progress-bar,
+    body.page-ready {
+        animation: none;
+    }
+
+    .page-transition-banner.is-visible .page-transition-icon,
+    .page-transition-banner.is-visible .page-transition-accent,
+    .page-transition-banner.is-visible .page-transition-kicker,
+    .page-transition-banner.is-visible .page-transition-title,
+    .page-transition-banner.is-visible .page-transition-progress-wrap {
+        opacity: 1;
+        transform: none;
+    }
+
+    .page-transition-progress-bar {
+        width: 100%;
+    }
+}
