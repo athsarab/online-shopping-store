@@ -64,7 +64,7 @@ if (!isset($GLOBALS['__kiyaraa_assets_loaded'])) {
 if (!isset($GLOBALS['__kiyaraa_scripts_loaded'])) {
     $GLOBALS['__kiyaraa_scripts_loaded'] = true;
     ?>
-    <script type="text/javascript" src="../JS/wnew.js" defer></script>
+    <script type="text/javascript" src="../JS/wnew.js?v=2" defer></script>
     <script type="text/javascript" src="../JS/nav.js" defer></script>
     <script type="text/javascript" src="../JS/footer.js" defer></script>
     <?php
