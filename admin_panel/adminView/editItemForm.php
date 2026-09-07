@@ -1,70 +1,103 @@
 
-<div class="container p-5">
+<div class="container p-4">
+  <h4><i class="fa fa-edit mr-2"></i>Edit Product</h4>
+  <button class="btn btn-sm btn-secondary mb-3" onclick="showProductItems()">
+    <i class="fa fa-arrow-left mr-1"></i> Back to Products
+  </button>
 
-<h4>Edit Product Detail</h4>
 <?php
     include_once "../config/dbconnect.php";
-	$ID=$_POST['record'];
-	$qry=mysqli_query($conn, "SELECT * FROM product WHERE product_id='$ID'");
-	$numberOfRow=mysqli_num_rows($qry);
-	if($numberOfRow>0){
-		while($row1=mysqli_fetch_array($qry)){
-      $catID=$row1["category_id"];
-?>
-<form id="update-Items" onsubmit="updateItems()" enctype='multipart/form-data'>
-	<div class="form-group">
-      <input type="text" class="form-control" id="product_id" value="<?=$row1['product_id']?>" hidden>
-    </div>
-    <div class="form-group">
-      <label for="name">Product Name:</label>
-      <input type="text" class="form-control" id="p_name" value="<?=$row1['product_name']?>">
-    </div>
-    <div class="form-group">
-      <label for="desc">Product Description:</label>
-      <input type="text" class="form-control" id="p_desc" value="<?=$row1['product_desc']?>">
-    </div>
-    <div class="form-group">
-      <label for="price">Unit Price:</label>
-      <input type="number" class="form-control" id="p_price" value="<?=$row1['price']?>">
-    </div>
-    <div class="form-group">
-      <label>Category:</label>
-      <select id="category">
-        <?php
-          $sql="SELECT * from category WHERE category_id='$catID'";
-          $result = $conn-> query($sql);
-          if ($result-> num_rows > 0){
-            while($row = $result-> fetch_assoc()){
-              echo"<option value='". $row['category_id'] ."'>" .$row['category_name'] ."</option>";
-            }
-          }
-        ?>
-        <?php
-          $sql="SELECT * from category WHERE category_id!='$catID'";
-          $result = $conn-> query($sql);
-          if ($result-> num_rows > 0){
-            while($row = $result-> fetch_assoc()){
-              echo"<option value='". $row['category_id'] ."'>" .$row['category_name'] ."</option>";
-            }
-          }
-        ?>
-      </select>
-    </div>
-      <div class="form-group">
-         <img width='200px' height='150px' src='<?=$row1["product_image"]?>'>
-         <div>
-            <label for="file">Choose Image:</label>
-            <input type="text" id="existingImage" class="form-control" value="<?=$row1['product_image']?>" hidden>
-            <input type="file" id="newImage" value="">
-         </div>
-    </div>
-    <div class="form-group">
-      <button type="submit" style="height:40px" class="btn btn-primary">Update Item</button>
-    </div>
-    <?php
-    		}
-    	}
-    ?>
-  </form>
+    $ID  = (int)($_POST['record'] ?? 0);
+    $stmt = $conn->prepare(
+        "SELECT p.*, c.category_id AS cat_id 
+         FROM product p 
+         JOIN category c ON p.category_id = c.category_id 
+         WHERE p.product_id = ?"
+    );
+    $stmt->bind_param('i', $ID);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
+    if($result->num_rows > 0):
+        $row1  = $result->fetch_assoc();
+        $catID = $row1['category_id'];
+        // Resolve display src for the admin panel context
+        $imgSrc = str_replace('../admin_panel/', './', $row1['product_image']);
+?>
+
+<form id="update-Items" onsubmit="return false;" enctype="multipart/form-data">
+    <input type="hidden" id="product_id" name="product_id" value="<?=$row1['product_id']?>">
+
+    <div class="form-group">
+        <label>Product Name <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="p_name" name="p_name"
+               value="<?=htmlspecialchars($row1['product_name'])?>" required>
     </div>
+
+    <div class="form-group">
+        <label>Product Description <span class="text-danger">*</span></label>
+        <textarea class="form-control" id="p_desc" name="p_desc" rows="3" required><?=htmlspecialchars($row1['product_desc'])?></textarea>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Price (Rs) <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="p_price" name="p_price"
+                       value="<?=$row1['price']?>" min="1" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Category <span class="text-danger">*</span></label>
+                <select class="form-control" id="category" name="category" required>
+                    <?php
+                      $cats = $conn->query("SELECT * FROM category ORDER BY category_name");
+                      while($cat = $cats->fetch_assoc()){
+                          $sel = ($cat['category_id'] == $catID) ? 'selected' : '';
+                          echo "<option value='".$cat['category_id']."' $sel>"
+                               . htmlspecialchars($cat['category_name'])
+                               . "</option>";
+                      }
+                    ?>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Current Image</label><br>
+        <?php if(!empty($row1['product_image'])): ?>
+            <img src="<?=htmlspecialchars($imgSrc)?>"
+                 width="180" height="140"
+                 style="object-fit:cover; border-radius:8px; border:2px solid #ddd;"
+                 alt="current product image">
+        <?php else: ?>
+            <p class="text-muted">No image uploaded for this product.</p>
+        <?php endif; ?>
+
+        <div class="mt-3">
+            <label>Replace Image</label>
+            <input type="hidden" id="existingImage" name="existingImage"
+                   value="<?=htmlspecialchars($row1['product_image'])?>">
+            <input type="file" class="form-control-file" id="newImage" name="newImage"
+                   accept="image/jpeg,image/png,image/gif,image/webp">
+            <small class="text-muted">Leave blank to keep the current image.</small>
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="button" class="btn btn-primary px-4" onclick="updateItems()">
+            <i class="fa fa-save mr-1"></i> Update Product
+        </button>
+        <button type="button" class="btn btn-secondary ml-2" onclick="showProductItems()">Cancel</button>
+    </div>
+</form>
+
+<?php
+    else:
+        echo '<div class="alert alert-danger"><i class="fa fa-exclamation-circle mr-2"></i>Product not found.</div>';
+    endif;
+    $stmt->close();
+?>
+</div>

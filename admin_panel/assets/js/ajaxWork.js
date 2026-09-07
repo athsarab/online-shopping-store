@@ -92,30 +92,41 @@ function ChangePay(id){
 
 //add product data
 function addItems(){
-    var p_name=$('#p_name').val();
-    var p_desc=$('#p_desc').val();
-    var p_price=$('#p_price').val();
-    var category=$('#category').val();
-    var upload=$('#upload').val();
-    var file=$('#file')[0].files[0];
+    var p_name  = $('#p_name').val().trim();
+    var p_desc  = $('#p_desc').val().trim();
+    var p_price = $('#p_price').val();
+    var category = $('#category').val();
+    var fileInput = $('#file')[0];
+
+    if(!p_name || !p_price || !category){
+        alert('Please fill in all required fields.');
+        return;
+    }
 
     var fd = new FormData();
-    fd.append('p_name', p_name);
-    fd.append('p_desc', p_desc);
-    fd.append('p_price', p_price);
-    fd.append('category', category);
-    fd.append('file', file);
-    fd.append('upload', upload);
+    fd.append('p_name',    p_name);
+    fd.append('p_desc',    p_desc);
+    fd.append('p_price',   p_price);
+    fd.append('category',  category);
+    fd.append('upload',    'upload'); // trigger flag
+    if(fileInput && fileInput.files.length > 0){
+        fd.append('file', fileInput.files[0]);
+    }
+
     $.ajax({
-        url:"./controller/addItemController.php",
-        method:"post",
-        data:fd,
+        url:'./controller/addItemController.php',
+        method:'post',
+        data: fd,
         processData: false,
         contentType: false,
         success: function(data){
-            alert('Product Added successfully.');
-            $('form').trigger('reset');
+            $('#addProductModal').modal('hide');
+            alert('Product added successfully!');
+            $('#addProductForm')[0].reset();
             showProductItems();
+        },
+        error: function(){
+            alert('Failed to add product. Please try again.');
         }
     });
 }
@@ -134,33 +145,43 @@ function itemEditForm(id){
 
 //update product after submit
 function updateItems(){
-    var product_id = $('#product_id').val();
-    var p_name = $('#p_name').val();
-    var p_desc = $('#p_desc').val();
-    var p_price = $('#p_price').val();
-    var category = $('#category').val();
+    var product_id    = $('#product_id').val();
+    var p_name        = $('#p_name').val().trim();
+    var p_desc        = $('#p_desc').val().trim();
+    var p_price       = $('#p_price').val();
+    var category      = $('#category').val();
     var existingImage = $('#existingImage').val();
-    var newImage = $('#newImage')[0].files[0];
+    var newImageInput = $('#newImage')[0];
+
+    if(!p_name || !p_price || !category){
+        alert('Please fill in all required fields.');
+        return;
+    }
+
     var fd = new FormData();
-    fd.append('product_id', product_id);
-    fd.append('p_name', p_name);
-    fd.append('p_desc', p_desc);
-    fd.append('p_price', p_price);
-    fd.append('category', category);
+    fd.append('product_id',    product_id);
+    fd.append('p_name',        p_name);
+    fd.append('p_desc',        p_desc);
+    fd.append('p_price',       p_price);
+    fd.append('category',      category);
     fd.append('existingImage', existingImage);
-    fd.append('newImage', newImage);
-   
+    if(newImageInput && newImageInput.files.length > 0){
+        fd.append('newImage', newImageInput.files[0]);
+    }
+
     $.ajax({
-      url:'./controller/updateItemController.php',
-      method:'post',
-      data:fd,
-      processData: false,
-      contentType: false,
-      success: function(data){
-        alert('Data Update Success.');
-        $('form').trigger('reset');
-        showProductItems();
-      }
+        url:'./controller/updateItemController.php',
+        method:'post',
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function(data){
+            alert('Product updated successfully!');
+            showProductItems();
+        },
+        error: function(){
+            alert('Update failed. Please try again.');
+        }
     });
 }
 

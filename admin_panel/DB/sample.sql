@@ -1,6 +1,16 @@
 -- Consolidated database schema for this project
 -- Target: XAMPP / phpMyAdmin
 -- Database: sample
+--
+-- IMPORT INSTRUCTIONS:
+--   1. Open phpMyAdmin (http://localhost/phpmyadmin)
+--   2. Click "Import" tab at the top
+--   3. Choose this file and click "Go"
+--   The database 'sample' will be created if it does not exist.
+--
+-- DEFAULT ADMIN LOGIN:
+--   Username : admin
+--   Password : Admin@1234
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -147,5 +157,31 @@ CREATE TABLE IF NOT EXISTS `review` (
   CONSTRAINT `review_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   CONSTRAINT `review_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ============================================================
+-- SEED DATA
+-- ============================================================
+
+-- Default categories (matching customer-facing section pages)
+INSERT IGNORE INTO `category` (`category_id`, `category_name`) VALUES
+(1, 'Women'),
+(2, 'Men'),
+(3, 'Kids'),
+(4, 'Sales'),
+(5, 'New Arrivals');
+
+-- Default sizes
+INSERT IGNORE INTO `sizes` (`size_id`, `size_name`) VALUES
+(1, 'S'),
+(2, 'M'),
+(3, 'L'),
+(4, 'XL'),
+(5, 'XXL');
+
+-- Default admin user
+-- Username : admin
+-- Password : Admin@1234  (bcrypt hash below)
+INSERT IGNORE INTO `users` (`user_id`, `user_name`, `email`, `password`, `contact_no`, `user_type`) VALUES
+(1, 'admin', 'admin@kiyaraa.com', '$2y$10$gIJcrYw1nWfKNrEk1mc4BewIryxteGCvGWX5V9jnK1Nu5oiTNGLue', '0000000000', 'admin');
 
 COMMIT;
