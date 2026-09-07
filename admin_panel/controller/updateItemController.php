@@ -1,44 +1,46 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
+        http_response_code(403);
+        exit('Forbidden');
+    }
     include_once "../config/dbconnect.php";
 
-    $product_id=$_POST['product_id'];
-    $p_name= $_POST['p_name'];
-    $p_desc= $_POST['p_desc'];
-    $p_price= $_POST['p_price'];
-    $category= $_POST['category'];
+    $product_id = (int)($_POST['product_id'] ?? 0);
+    $p_name     = trim($_POST['p_name']      ?? '');
+    $p_desc     = trim($_POST['p_desc']      ?? '');
+    $p_price    = (int)($_POST['p_price']    ?? 0);
+    $category   = (int)($_POST['category']   ?? 0);
 
-    if( isset($_FILES['newImage']) ){
-        
-        $location="./uploads/";
-        $img = $_FILES['newImage']['name'];
-        $tmp = $_FILES['newImage']['tmp_name'];
-        $dir = '../uploads/';
-        $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
-        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif','webp');
-        $image =rand(1000,1000000).".".$ext;
-        $final_image=$location. $image;
-        if (in_array($ext, $valid_extensions)) {
-            $path = UPLOAD_PATH . $image;
-            move_uploaded_file($tmp, $dir.$image);
+    if($product_id <= 0 || empty($p_name) || $p_price <= 0 || $category <= 0){
+        echo "Missing required fields.";
+        exit;
+    }
+
+    // Determine final image path
+    $imagePath = trim($_POST['existingImage'] ?? '');
+
+    if (isset($_FILES['newImage']) && $_FILES['newImage']['error'] === UPLOAD_ERR_OK) {
+        $allowed = ['jpg','jpeg','png','gif','webp'];
+        $ext     = strtolower(pathinfo($_FILES['newImage']['name'], PATHINFO_EXTENSION));
+        if (in_array($ext, $allowed)) {
+            $newName   = uniqid('prod_', true) . '.' . $ext;
+            $uploadDir = realpath(__DIR__ . '/../uploads') . DIRECTORY_SEPARATOR;
+            if (move_uploaded_file($_FILES['newImage']['tmp_name'], $uploadDir . $newName)) {
+                $imagePath = '../admin_panel/uploads/' . $newName;
+            }
         }
-    }else{
-        $final_image=$_POST['existingImage'];
     }
-    $updateItem = mysqli_query($conn,"UPDATE product SET 
-        product_name='$p_name', 
-        product_desc='$p_desc', 
-        price=$p_price,
-        category_id=$category,
-        product_image='$final_image' 
-        WHERE product_id=$product_id");
 
+    $stmt = $conn->prepare(
+        "UPDATE product SET product_name=?, product_desc=?, price=?, category_id=?, product_image=? WHERE product_id=?"
+    );
+    $stmt->bind_param('ssiisi', $p_name, $p_desc, $p_price, $category, $imagePath, $product_id);
 
-    if($updateItem)
-    {
+    if($stmt->execute()) {
         echo "true";
+    } else {
+        echo "Error: " . $conn->error;
     }
-    // else
-    // {
-    //     echo mysqli_error($conn);
-    // }
+    $stmt->close();
 ?>
