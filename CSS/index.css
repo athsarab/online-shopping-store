@@ -27,6 +27,10 @@
 	background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
 	position: absolute;
 	top: 0;
+	pointer-events: none;
+}
+.overlay .content{
+	pointer-events: auto;
 }
 .content{
 	width: 60%;

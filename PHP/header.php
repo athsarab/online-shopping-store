@@ -5,6 +5,7 @@ if (!isset($GLOBALS['__kiyaraa_assets_loaded'])) {
     <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="../CSS/cartSidebar.css">
     <link rel="stylesheet" href="../CSS/footernew.css">
+    <link rel="stylesheet" href="../CSS/pageTransitions.css">
     <link rel="stylesheet" href="../CSS/mobile.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +48,17 @@ if (!isset($GLOBALS['__kiyaraa_assets_loaded'])) {
 </header>
 
 <?php include __DIR__ . "/cartSidebar.php"; ?>
+
+<div class="page-transition-overlay" aria-hidden="true"></div>
+<div class="page-transition-banner" aria-live="polite" aria-atomic="true" aria-hidden="true">
+    <span class="page-transition-icon" id="page-transition-icon" aria-hidden="true">🏠</span>
+    <span class="page-transition-accent"></span>
+    <span class="page-transition-kicker">Navigating to</span>
+    <strong class="page-transition-title" id="page-transition-title">Home</strong>
+    <div class="page-transition-progress-wrap" aria-hidden="true">
+        <div class="page-transition-progress-bar"></div>
+    </div>
+</div>
 
 <?php
 if (!isset($GLOBALS['__kiyaraa_scripts_loaded'])) {

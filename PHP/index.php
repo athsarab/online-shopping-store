@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Home page</title>
 <title>Image Slider using HTML and CSS</title>
-<link rel="stylesheet" href="../CSS/index.css">
+<link rel="stylesheet" href="../CSS/index.css?v=2">
 
 </head>
 <body onload="slider()">
