@@ -2,8 +2,8 @@
 if (!isset($GLOBALS['__kiyaraa_assets_loaded'])) {
     $GLOBALS['__kiyaraa_assets_loaded'] = true;
     ?>
-    <link rel="stylesheet" href="../CSS/header.css">
-    <link rel="stylesheet" href="../CSS/cartSidebar.css">
+    <link rel="stylesheet" href="../CSS/header.css?v=2">
+    <link rel="stylesheet" href="../CSS/cartSidebar.css?v=2">
     <link rel="stylesheet" href="../CSS/footernew.css">
     <link rel="stylesheet" href="../CSS/pageTransitions.css">
     <link rel="stylesheet" href="../CSS/mobile.css">

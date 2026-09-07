@@ -16,6 +16,8 @@
     background: #fff;
     z-index: 9999;
     transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
     transition: transform 200ms ease;
     padding: 18px;
     overflow: auto;
@@ -23,6 +25,8 @@
 
 .cart-sidebar.is-open {
     transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .cart-sidebar-header {
