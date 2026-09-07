@@ -76,8 +76,8 @@ function purchaseClicked(e) {
 }
 
 function addToCartClicked(event) {
-    var button = event.target
-    var shopItem = button.parentElement.parentElement
+    var button = event.currentTarget
+    var shopItem = button.parentElement
     var titleEl = shopItem.getElementsByClassName('shop-item-title')[0]
     var priceEl = shopItem.getElementsByClassName('shop-item-price')[0]
     var imgEl = shopItem.getElementsByClassName('product-image')[0]
@@ -95,7 +95,7 @@ function addToCartClicked(event) {
 
 function parsePrice(text) {
     // Handles formats like "Rs 1875.00" or "Rs1875.00"
-    var cleaned = String(text).replace(/Rs\s*/i, '').trim()
+    var cleaned = String(text).replace(/Rs\s*/i, '').replace(/,/g, '').trim()
     var num = parseFloat(cleaned)
     if (isNaN(num)) return 0
     return num
