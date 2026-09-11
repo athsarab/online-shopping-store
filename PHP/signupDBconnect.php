@@ -5,16 +5,7 @@ $email = $_POST['email'] ?? '';
 $contact_no = $_POST['contact_no'] ?? '';
 $password = $_POST['password'] ?? '';
 
-// Connect to the database
-$servername = "localhost";
-$username = "root";
-$db_password = "";
-$dbname = "sample";
-
-$conn = new mysqli($servername, $username, $db_password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once __DIR__ . '/config/dbconnect.php';
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 

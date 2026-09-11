@@ -91,9 +91,15 @@ Default config expects XAMPP defaults:
 - Password: empty
 - DB: `sample`
 
-Update these if your local MySQL differs:
-- `admin_panel/config/dbconnect.php`
-- Some storefront actions also create DB connections inside files in `PHP/`
+Update these four values in `PHP/config/dbconnect.php` if your deployment uses different
+database credentials:
+- `$dbHost`
+- `$dbUser`
+- `$dbPassword`
+- `$dbName`
+
+The admin panel config at `admin_panel/config/dbconnect.php` reuses this same file, so
+database credentials only need to be changed once.
 
 ---
 

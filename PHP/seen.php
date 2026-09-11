@@ -1,12 +1,5 @@
 <?php
-// Assuming you have a MySQL database
-$host = "localhost"; // Replace with your database host
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$database = "sample"; // Replace with your database name
-
-// Connect to the database
-$conn = mysqli_connect($host, $username, $password, "$database");
+require_once __DIR__ . '/config/dbconnect.php';
 $result = mysqli_query($conn, "SELECT * FROM checkout_details");
 ?>
 

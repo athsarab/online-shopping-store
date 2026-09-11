@@ -1,14 +1,3 @@
 <?php
-
-$server = "localhost";
-$user = "root";
-$password = "";
-$db = "sample";
-
-$conn = mysqli_connect($server,$user,$password,$db);
-
-if(!$conn) {
-    die("Connection Failed:".mysqli_connect_error());
-}
-
-?>
+// Keep the admin panel compatible with the storefront's single DB config.
+require_once __DIR__ . '/../../PHP/config/dbconnect.php';
