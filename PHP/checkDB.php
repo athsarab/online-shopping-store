@@ -16,16 +16,7 @@ $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 // Perform database operations
 // Assuming you have a MySQL database
 
-// Connect to the database
-$host = "localhost"; // Replace with your database host
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$database = "sample"; // Replace with your database name
-
-$conn = new mysqli($host, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once __DIR__ . '/config/dbconnect.php';
 
 // Insert the data into checkout_details (do NOT store card data)
 $stmt = $conn->prepare(

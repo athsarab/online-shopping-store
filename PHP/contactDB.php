@@ -11,19 +11,7 @@ $fullname = htmlspecialchars($fullname);
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 // ... Repeat for other fields if necessary
 
-// Perform database operations
-// Assuming you have a MySQL database
-
-// Connect to the database
-$host = "localhost"; // Replace with your database host
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$database = "sample"; // Replace with your database name
-
-$conn = new mysqli($host, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once __DIR__ . '/config/dbconnect.php';
 
 // Insert the data into a table
 $stmt = $conn->prepare("INSERT INTO contact (fullname, email, message) VALUES (?, ?, ?)");

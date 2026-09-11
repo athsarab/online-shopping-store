@@ -1,14 +1,17 @@
 <?php
 /**
- * Customer-side database connection (same 'sample' database as admin panel)
+ * Single database configuration for the storefront and admin panel.
+ * Change these four values when deploying to a different host.
  */
-$server   = 'localhost';
-$dbuser   = 'root';
-$dbpass   = '';
-$db       = 'sample';
+$dbHost = 'localhost';
+$dbUser = 'root';
+$dbPassword = '';
+$dbName = 'sample';
 
-$conn = new mysqli($server, $dbuser, $dbpass, $db);
+$conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 if ($conn->connect_error) {
     die('Database connection failed: ' . $conn->connect_error);
 }
+
+$conn->set_charset('utf8mb4');
 
