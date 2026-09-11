@@ -1,0 +1,28 @@
+name: Deploy to InfinityFree
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v6
+
+      - name: Upload website to InfinityFree
+        uses: step-security/ftp-deploy-action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ./htdocs/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/README.md
