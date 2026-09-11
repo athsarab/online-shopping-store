@@ -1,0 +1,164 @@
+/* ============================================================
+   KIYARAA — Toast Notification System
+   Professional popup messages for success/error/info/warning
+   ============================================================ */
+
+/* Container — stacks toasts top-right */
+.kiyaraa-toast-container {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none;
+    max-width: 400px;
+    width: calc(100% - 40px);
+}
+
+/* Individual toast */
+.kiyaraa-toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.08);
+    backdrop-filter: blur(8px);
+    pointer-events: auto;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform 0.45s cubic-bezier(.22,.68,0,1.2), opacity 0.35s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative;
+    overflow: hidden;
+}
+
+.kiyaraa-toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.kiyaraa-toast.hide {
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+/* Progress bar at bottom */
+.kiyaraa-toast::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    border-radius: 0 0 12px 12px;
+    animation: kiyaraa-toast-timer 4s linear forwards;
+}
+
+@keyframes kiyaraa-toast-timer {
+    from { width: 100%; }
+    to   { width: 0%;   }
+}
+
+/* ── Variants ──────────────────────────────────── */
+
+/* SUCCESS */
+.kiyaraa-toast.success {
+    background: linear-gradient(135deg, #e8f9ee 0%, #d4f5e0 100%);
+    border-left: 4px solid #27ae60;
+    color: #1a5c32;
+}
+.kiyaraa-toast.success::after { background: #27ae60; }
+.kiyaraa-toast.success .kiyaraa-toast-icon {
+    color: #27ae60;
+}
+
+/* ERROR */
+.kiyaraa-toast.error {
+    background: linear-gradient(135deg, #fdecea 0%, #fbd5d0 100%);
+    border-left: 4px solid #e74c3c;
+    color: #7a1b1b;
+}
+.kiyaraa-toast.error::after { background: #e74c3c; }
+.kiyaraa-toast.error .kiyaraa-toast-icon {
+    color: #e74c3c;
+}
+
+/* WARNING */
+.kiyaraa-toast.warning {
+    background: linear-gradient(135deg, #fff8e1 0%, #fff0c2 100%);
+    border-left: 4px solid #f39c12;
+    color: #7a5a00;
+}
+.kiyaraa-toast.warning::after { background: #f39c12; }
+.kiyaraa-toast.warning .kiyaraa-toast-icon {
+    color: #f39c12;
+}
+
+/* INFO */
+.kiyaraa-toast.info {
+    background: linear-gradient(135deg, #e8f0fe 0%, #d2e3fc 100%);
+    border-left: 4px solid #3498db;
+    color: #1a3d5c;
+}
+.kiyaraa-toast.info::after { background: #3498db; }
+.kiyaraa-toast.info .kiyaraa-toast-icon {
+    color: #3498db;
+}
+
+/* ── Sub-elements ──────────────────────────────── */
+.kiyaraa-toast-icon {
+    flex-shrink: 0;
+    font-size: 24px;
+    line-height: 1;
+    margin-top: 1px;
+}
+
+.kiyaraa-toast-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.kiyaraa-toast-title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.kiyaraa-toast-message {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.kiyaraa-toast-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    padding: 0;
+    line-height: 1;
+    color: inherit;
+}
+.kiyaraa-toast-close:hover { opacity: 1; }
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 520px) {
+    .kiyaraa-toast-container {
+        top: 80px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-width: none;
+    }
+    .kiyaraa-toast {
+        font-size: 13px;
+        padding: 14px 16px;
+    }
+}
+

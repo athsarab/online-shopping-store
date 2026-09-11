@@ -7,6 +7,7 @@ if (!isset($GLOBALS['__kiyaraa_assets_loaded'])) {
     <link rel="stylesheet" href="../CSS/footernew.css">
     <link rel="stylesheet" href="../CSS/pageTransitions.css">
     <link rel="stylesheet" href="../CSS/mobile.css">
+    <link rel="stylesheet" href="../CSS/toast.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +28,7 @@ if (!isset($GLOBALS['__kiyaraa_assets_loaded'])) {
         <nav class="nav" aria-label="Primary">
             <ul class="navbar" id="primary-nav">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="men.php">Men</a></li>
+                <li><a href="Men.php">Men</a></li>
                 <li><a href="women.php">Women</a></li>
                 <li><a href="kids.php">Kids</a></li>
                 <li><a href="sales.php">Sales</a></li>
@@ -67,6 +68,7 @@ if (!isset($GLOBALS['__kiyaraa_scripts_loaded'])) {
     <script type="text/javascript" src="../JS/wnew.js?v=2" defer></script>
     <script type="text/javascript" src="../JS/nav.js" defer></script>
     <script type="text/javascript" src="../JS/footer.js" defer></script>
+    <script type="text/javascript" src="../JS/toast.js" defer></script>
     <?php
 }
 ?>
