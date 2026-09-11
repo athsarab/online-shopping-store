@@ -3,8 +3,13 @@
 require_once __DIR__ . '/config/dbconnect.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $user_name = $_POST["user_name"] ?? '';
+    $user_name = trim($_POST["user_name"] ?? '');
     $password = $_POST["password"] ?? '';
+
+    if (empty($user_name) || empty($password)) {
+        header('Location: ./login.php?msg=' . urlencode('Please enter both username and password.') . '&msgtype=error');
+        exit;
+    }
 
     $sql = "SELECT user_id, user_name, password, user_type FROM users WHERE user_name = ? LIMIT 1";
     $stmt = $conn->prepare($sql);
@@ -25,66 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($row['user_type'] === 'admin') {
                 header('Location: ../admin_panel/index.php');
             } else {
-                header('Location: ./index.php');
+                header('Location: ./index.php?msg=' . urlencode('Welcome back, ' . $row['user_name'] . '!') . '&msgtype=success');
             }
             exit;
         }
     }
 
-    header('Location: ./login.php');
+    $stmt->close();
+    $conn->close();
+    header('Location: ./login.php?msg=' . urlencode('Incorrect username or password. Please try again.') . '&msgtype=error');
     exit;
 }
+
+// Direct access without POST
+header('Location: ./login.php');
+exit;
 ?>
-
-<!-- Display error message -->
-<?php if (isset($errorMessage)) : ?>
-    <p><?php echo $errorMessage; ?></p>
-<?php endif; ?>
-
-    <!-- // Hash the password
-    //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-
-    // Query the database to check if the username and password match
-   //$sql = "SELECT user_name, password, user_type FROM users WHERE user_name = '$user_name' AND password = '$password'";
-   // $result = $conn->query($sql);
-
-   $stmt=$conn->prepare("SELECT user_name from users where user_name=? and password=?");
-
-
-   $stmt->bind_param("ss",$username,$password);
-   $stmt->execute();
-   $stmt->bind_result($user);
-
-   //check if matching user found
-
-    if($stmt->fetch()){
-        //set session
-        $_SESSION['user_type']=$user;
-
-        if($user_type==='admin'){
-            header("Location: ");
-            exit;
-        }elseif($user_type==='user'){
-            header ("Location: index.php");
-            exit;
-        }
-    }else{
-        header("Location:ddd.php");
-    }
-
-   /* if ($result->num_rows == 1) {
-        if ($_SESSION['user_type'] === 'user') {
-        // Successful login
-            header ("Location: index.php");}
-        // Redirect to a dashboard or homepage
-        // header("Location: dashboard.php");
-    } else {
-        // Invalid credentials
-        echo "Invalid username or password";
-    }*/
-}
-// Close the database connection
-$conn->close();
-?>
- -->

@@ -1,30 +1,39 @@
 <?php
 // Get the form data
-$fullname = $_POST['fullname'];
-$email = $_POST['email'];
-$message = $_POST['message'];
+$fullname = trim($_POST['fullname'] ?? '');
+$email = trim($_POST['email'] ?? '');
+$message = trim($_POST['message'] ?? '');
 
-
-
-// Validate and sanitize the data (optional but recommended)
-$fullname = htmlspecialchars($fullname);
-$email = filter_var($email, FILTER_SANITIZE_EMAIL);
-// ... Repeat for other fields if necessary
-
-require_once __DIR__ . '/config/dbconnect.php';
-
-// Insert the data into a table
-$stmt = $conn->prepare("INSERT INTO contact (fullname, email, message) VALUES (?, ?, ?)");
-$stmt->bind_param('sss', $fullname, $email, $message);
-if ($stmt->execute()) {
-    header('Location: conseen.php');
+// Validation
+if (empty($fullname) || empty($email) || empty($message)) {
+    header('Location: ./contactnew.php?msg=' . urlencode('Please fill in all fields.') . '&msgtype=error');
     exit;
 }
 
-echo "Error: " . $conn->error;
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: ./contactnew.php?msg=' . urlencode('Please enter a valid email address.') . '&msgtype=error');
+    exit;
+}
+
+// Sanitize
+$fullname = htmlspecialchars($fullname);
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+require_once __DIR__ . '/config/dbconnect.php';
+
+// Insert the data
+$stmt = $conn->prepare("INSERT INTO contact (fullname, email, message) VALUES (?, ?, ?)");
+$stmt->bind_param('sss', $fullname, $email, $message);
+
+if ($stmt->execute()) {
+    $stmt->close();
+    $conn->close();
+    header('Location: ./contactnew.php?msg=' . urlencode('Thank you! Your message has been sent successfully. We\'ll get back to you soon.') . '&msgtype=success');
+    exit;
+}
 
 $stmt->close();
-
-// Close the database connection
 $conn->close();
+header('Location: ./contactnew.php?msg=' . urlencode('Failed to send your message. Please try again later.') . '&msgtype=error');
+exit;
 ?>
